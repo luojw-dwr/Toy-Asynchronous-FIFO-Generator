@@ -1,6 +1,9 @@
 ### Project Specific stuff
 test_run_dir/*
 build/*
+### Simulation Related
+src/test/svut/dump.vcd
+src/test/svut/icarus.out
 ### XilinxISE template
 # intermediate build files
 *.bgn
