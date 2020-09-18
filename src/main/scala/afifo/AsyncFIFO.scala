@@ -17,8 +17,8 @@ class AsyncFIFO[T <: Data](private val gen: T, val suggestDepth: Int) extends Ra
     val w    = IO(Flipped(new FIFOWritePortIO(gen)))
     val r    = IO(Flipped(new FIFOReadPortIO(gen)))
     
-    val wctrl = withClockAndReset(wclk, wrst) { Module(new WCtrl(addrWidth)).io }
-    val rctrl = withClockAndReset(rclk, rrst) { Module(new RCtrl(addrWidth)).io }
+    val wctrl = withClockAndReset(wclk, wrst) { Module(new WCtrl(addrWidth, 3)).io }
+    val rctrl = withClockAndReset(rclk, rrst) { Module(new RCtrl(addrWidth, 3)).io }
     val mem   = Module(new S2P(gen.cloneType, depth))
     
     wctrl.ptrs <> rctrl.ptrs

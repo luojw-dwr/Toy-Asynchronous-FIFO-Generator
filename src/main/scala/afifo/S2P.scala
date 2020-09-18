@@ -24,10 +24,11 @@ class S2P[T <: Data](private val gen: T, depth: Int) extends RawModule {
     }
     
     withClock(r.rctrl.rclk) {
-        val raddrReg = RegNext(r.rctrl.raddr)
-        val rbitsReg = Reg(storeType.cloneType)
-        rbitsReg := mem(raddrReg)
-        r.rbits := rbitsReg.asTypeOf(gen.cloneType)
+        //val raddrReg = RegNext(r.rctrl.raddr)
+        //val rbitsReg = Reg(storeType.cloneType)
+        //rbitsReg := mem(raddrReg)
+        //r.rbits := rbitsReg.asTypeOf(gen.cloneType)
+        r.rbits := mem(r.rctrl.raddr).asTypeOf(gen.cloneType)
     }
     
 }
