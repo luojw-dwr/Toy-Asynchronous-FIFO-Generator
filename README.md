@@ -52,7 +52,7 @@ $ make clean
   * `AsyncFIFO.scala`: The top-level module for the asynchronous FIFO.
   * `WCtrl.scala`: The controller of the writing side. Pointer CDC is handled internally.
   * `RCtrl.scala`: The controller of the reading side. Pointer CDC is handled internally.
-  * `S2P.scala`: A simple dual port memory model where neither the address nor the data is registered.
+  * `S2P.scala`: A simple dual port memory model where neither the address nor the data is registered. If any complicated bundles are to be stored, each bundle will be stored as a whole `UInt` internally (rather than separate fields) while the module takes care of the type conversions.
 * Miscellaneous logics:
   * `gray.scala`: Binary->Gray conversion logic and gray-encoded pointer comparison logics.
 * Interface bundles:
