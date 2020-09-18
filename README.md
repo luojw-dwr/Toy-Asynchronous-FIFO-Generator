@@ -46,3 +46,26 @@ $ cd test/svut
 $ make clean
 ```
 
+## Source Files
+
+* Main Components:
+  * `AsyncFIFO.scala`: The top-level module for the asynchronous FIFO.
+  * `WCtrl.scala`: The controller of the writing side. Pointer CDC is handled internally.
+  * `RCtrl.scala`: The controller of the reading side. Pointer CDC is handled internally.
+  * `S2P.scala`: A simple dual port memory model where neither the address nor the data is registered.
+* Miscellaneous logics:
+  * `gray.scala`: Binary->Gray conversion logic and gray-encoded pointer comparison logics.
+* Interface bundles:
+  * `CtrlPtrIO.scala`: Pointer exchange interface for `WCtrl` and `RCtrl`.
+  * `MemReadPortCtrlIO`: Read clock and read address.
+  * `MemWritePortCtrlIO`: Write clock, write enable and write address.
+  * `MemReadPortIO`:  `MemReadPortCtrlIO` and read data.
+  * `MemWritePortIO`:  `MemWritePortCtrlIO` and written data.
+
+## Design Internals
+
+The module is separated into three components (corresponding to the clock domains coincidentally):
+
+![AsyncFIFO Internal Hierarchy](image/AsyncFIFO.dot.svg)
+
+The pointer CDC are handled with gray codes and the pointers are synchronized inside both controllers.
