@@ -10,14 +10,14 @@ This project offers an chisel3 reinterpretation of the Verilog code from the wel
 Before generating your desired asynchronous FIFO, modify `src/main/scala/afifo/main.scala` to achieve a correct data type and depth. Assuming that you have changed to the project root directory, run the following in your terminal:
 
 ```bash
-make build
+$ make build
 ```
 
 The generated annotations, firrtl files and verilog files should lie in `build/`.
 
 ## Simulation
 
-Please make sure to have [GTKWave](http://gtkwave.sourceforge.net/), [Icarus Verilog](http://iverilog.icarus.com/) and [SVUT](https://github.com/dpretet/svut) installed. Assuming that you have changed to the project root directory.
+The simulation files are modified from those provided by the repository [dpretet/async_fifo](https://github.com/dpretet/async_fifo). Please make sure to have [GTKWave](http://gtkwave.sourceforge.net/), [Icarus Verilog](http://iverilog.icarus.com/) and [SVUT](https://github.com/dpretet/svut) installed. Assuming that you have changed to the project root directory.
 
 ### CLI Test
 
