@@ -7,7 +7,7 @@ This project offers an chisel3 reinterpretation of the Verilog code from the wel
 
 ## Generation
 
-Before generating your desired asynchronous FIFO, modify `src/main/scala/afifo/main.scala` to achieve a correct data type and depth. Assuming that you have changed to the project root directory, run the following in your terminal:
+Before generating your desired asynchronous FIFO, modify `src/main/scala/afifo/main.scala` to achieve a correct data type and depth (and number of stages of pointer flopping synchronizer whose default is 2 in both directions). Assuming that you have changed to the project root directory, run the following in your terminal:
 
 ```bash
 $ make build
@@ -24,7 +24,7 @@ The simulation files are modified from those provided by the repository [dpretet
 If you only want to read the report, run the following in your terminal:
 
 ```bash
-$ cd test/svut
+$ cd src/test/svut
 $ make test
 ```
 
@@ -35,14 +35,14 @@ The simulation report should show in the terminal.
 If you want to have a glance at the waves, run the following in your terminal:
 
 ```bash
-$ cd test/svut
+$ cd src/test/svut
 $ make gui
 ```
 
 GTKWave will then be launched while the simulation report should show in the terminal. Some simulation-related files will be generated at the same time, to delete which:
 
 ```bash
-$ cd test/svut
+$ cd src/test/svut
 $ make clean
 ```
 
